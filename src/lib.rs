@@ -455,8 +455,8 @@ mod tests {
 
     #[tokio::test]
     async fn start_network_server() {
-        let conn = Network::new_server("127.0.0.1", 6000).into();
-        let scanner = Scanner::new(&conn);
+        let conn = Network::new_server("127.0.0.1", 6000);
+        let scanner = Scanner::new(conn);
         let r = scanner.start().await;
         assert!(r.is_ok());
     }
